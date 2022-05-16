@@ -5,9 +5,8 @@ const griglia = document.getElementById ("griglia");
 console.log(livello, button);
 
 
-let nodeFacile;
-let nodeMedio;
-let nodeDifficile;
+let nodeBase;
+
 
 
 button.addEventListener("click",
@@ -52,7 +51,8 @@ button.addEventListener("click",
 for(let i = 0; i < myArrRandom.length; i++){
    
     const livFacile = livellobase (classCelle);
-    let arrItem = myArrRandom[i];
+    let arrItem = creaRandomNum (16, 1, 16) [i];
+    console.log(arrItem);
     
     livFacile.addEventListener("click",
     function() {
@@ -96,16 +96,18 @@ function livellobase (classDiv) {
 function creaRandomNum (numItems, min, max ){
     const arrInt =[];
     while ( arrInt.length < numItems) {
-        let randomNum = getRandomMinMax (min, max);
+        let randomNum = getRandom (min, max);
         if (!arrInt.includes (randomNum)){
             arrInt.push(randomNum);
+            
         }
+
     }
     return arrInt;
 }
 
-function getRandomMinMax (rangeMin, RangeMax){
-    let result = Math.floor(Math.random() * (RangeMax - rangeMin + 1)) + rangeMin;
+function getRandom (min, max){
+    let result = Math.floor(Math.random() * ((max + 1) - min ) ) + min;
     return result;
 }
 
