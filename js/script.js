@@ -45,13 +45,18 @@ button.addEventListener("click",
 
     let myArrRandom = creaRandomNum (nCelle, 1, nCelle);
     console.log(myArrRandom);
+    let arrBombe = creaRandomNum (16, 1, 16);
+     console.log( arrBombe);
+    let score = 0 ;
 
 
 
 for(let i = 0; i < myArrRandom.length; i++){
-   
+    arrBombe;
     const livFacile = livellobase (classCelle);
     let arrItem = creaRandomNum (16, 1, 16) [i];
+    
+    
     console.log(arrItem);
     
     livFacile.addEventListener("click",
@@ -59,7 +64,20 @@ for(let i = 0; i < myArrRandom.length; i++){
         
         this.append(arrItem);
         
-        this.classList.add("clicked");
+       
+        
+        
+        
+        
+        
+        if (!arrBombe.includes (arrItem)){
+            this.classList.add("clicked");
+            score++;
+        } else{
+            this.classList.add("clicked-red");
+            alert("hai perso! il tuo punteggio è:" +score); 
+        }
+        
 
 
     }
